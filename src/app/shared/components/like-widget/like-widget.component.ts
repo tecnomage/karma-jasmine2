@@ -22,6 +22,7 @@ export class LikeWidgetComponent implements OnInit {
   }
 
   public like(): void {
+    console.log("like widget");
     this.liked.emit();
   }
 
