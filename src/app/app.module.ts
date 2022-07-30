@@ -1,3 +1,4 @@
+import { PhotoBoardModule } from './shared/components/photo-board/photo-board.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -15,6 +16,7 @@ import { PhotoFrameModule } from './shared/components/photo-frame/photo-frame.mo
     AppRoutingModule,
     PhotoFrameModule,
     LikeWidgetModule,
+    PhotoBoardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

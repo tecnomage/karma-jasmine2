@@ -1,4 +1,3 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { UniqueIdService } from '../../services/unique-id/unique-id.service';
@@ -23,6 +22,7 @@ export class LikeWidgetComponent implements OnInit {
   }
 
   public like(): void {
+    console.log(this.likes);
     this.liked.emit();
   }
 

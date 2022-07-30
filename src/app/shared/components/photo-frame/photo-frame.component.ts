@@ -9,9 +9,9 @@ import { debounceTime, takeUntil } from 'rxjs/operators';
 })
 export class PhotoFrameComponent  implements OnInit, OnDestroy {
   @Output() public liked: EventEmitter<void> = new EventEmitter();
-  @Input() public description: string = '';
-  @Input() public src: string = '';
-  @Input() public likes: number = 0;
+  @Input()  public description: string = '';
+  @Input()  public src: string = '';
+  @Input()  public likes = 0;
   private debounceSubject: Subject<void> = new Subject();
   private unsubscribe: Subject<void> = new Subject();
 
@@ -22,8 +22,8 @@ export class PhotoFrameComponent  implements OnInit, OnDestroy {
       .pipe(debounceTime(500))
       .pipe(takeUntil(this.unsubscribe))
       .subscribe(() => {
-        this.likes++;
-        this.liked.emit();
+       // this.likes++;
+       return this.liked.emit();
       });
   }
 
@@ -35,7 +35,7 @@ export class PhotoFrameComponent  implements OnInit, OnDestroy {
   constructor() {}
 
   public like(): void {
-    console.log('like photo frame');
+    console.log(this.likes);
     this.debounceSubject.next();
   }
 }
